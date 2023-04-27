@@ -1,4 +1,4 @@
 # bioinformaticswebapp
-created for Chem 11 CPT. 
-contains genome analysis algorithms and file conversion (FASTA, FASTQ, etc.)
+Created for Chem 11 CPT   
+Contains genome analysis algorithms and file conversion (FASTA, FASTQ, etc.)
 
