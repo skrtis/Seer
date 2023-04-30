@@ -1,0 +1,139 @@
+/* importing the Product Sans font */
+@import url('https://fonts.googleapis.com/css2?family=Product+Sans');
+@import url('https://fonts.googleapis.com/css2?family=Sulphur+Point&display=swap');
+
+/* Set body styles */
+body {
+  background-color: #1a1a1a;
+  color: #999999;
+  font-family: 'Product Sans', sans-serif;
+}
+
+/* Set header styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+
+}
+
+
+header a {
+  color: #fcf392;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: 'Product Sans', sans-serif;
+  margin-bottom: 10px;
+  margin-left: 10px;
+
+}
+
+header a:hover {
+  color: #fff;
+}
+
+.search-box {
+  display: flex;
+}
+
+.search-box input[type="text"] {
+  background-color: #404040;
+  color: #f2f2f2;
+  border: none;
+  padding: 10px;
+  border-radius: 5px 0 0 5px;
+}
+
+.search-box button[type="submit"] {
+  background-color: #f7ea70;
+  color: #f2f2f2;
+  border: none;
+  padding: 10px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.search-box button[type="submit"]:hover {
+  background-color: #ffa366;
+}
+
+.fancy-title {
+  color: #f7ea60;
+  font-size: 36px;
+  margin: 20px 0;
+  text-transform: uppercase;
+  font-family: 'Sulphur Point', sans-serif;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin: 0 20px;
+}
+
+nav a {
+  color: #b5b5b5;
+  text-decoration: none;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.nav-links {
+  padding: 3px 0; /* add vertical padding of 20px */
+}
+
+nav a::after {
+  margin-bottom: 10px;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+/* Set main section styles */
+main {
+  padding: 40px;
+}
+
+section h2 {
+  font-size: 24px;
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+
+section p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
+section ul {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
+section li {
+  margin-bottom: 10px;
+}
+
+/* Set footer styles */
+footer {
+  background-color: #333;
+  color: #f2f2f2;
+  font-size: 16px;
+  padding: 20px;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+}
+

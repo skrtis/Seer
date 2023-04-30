@@ -18,7 +18,7 @@ def dropdown():
         <select id="List" name="choices">
             <option value="conversion">Conversion</option>
             <option value="algorithms">Algorithms</option>
-            <option value="literature">Literature</option>
+            <option value="literature">Literature</option> 
         </select>
     </body>
     </html>
