@@ -1,12 +1,11 @@
-/* import fonts */
-@import url('https://fonts.googleapis.com/css2?family=Product+Sans');
-@import url('https://fonts.googleapis.com/css2?family=Sulphur+Point&display=swap');
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
 
 /* Set body styles */
 body {
-  background-color: #1a1a1a;
-  color: #999999;
-  font-family: 'Product Sans', sans-serif;
+  background-color: #f1f1f1;
+  color: #333333;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Set header styles */
@@ -15,22 +14,22 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-
+  background-color: #333333;
+  color: #f1f1f1;
+  font-family: 'Montserrat', sans-serif;
 }
 
-
 header a {
-  color: #fcf392;
+  color: #f1f1f1;
   text-decoration: none;
   font-size: 16px;
-  font-family: 'Product Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   margin-bottom: 10px;
   margin-left: 10px;
-
 }
 
 header a:hover {
-  color: #fff;
+  color: #ffd700;
 }
 
 .search-box {
@@ -38,32 +37,34 @@ header a:hover {
 }
 
 .search-box input[type="text"] {
-  background-color: #404040;
-  color: #f2f2f2;
+  background-color: #f1f1f1;
+  color: #333333;
   border: none;
   padding: 10px;
   border-radius: 5px 0 0 5px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .search-box button[type="submit"] {
-  background-color: #f7ea70;
-  color: #f2f2f2;
+  background-color: #ffd700;
+  color: #333333;
   border: none;
   padding: 10px;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .search-box button[type="submit"]:hover {
-  background-color: #ffa366;
+  background-color: #f1c40f;
 }
 
 .fancy-title {
-  color: #efe8a0;
+  color: #333333;
   font-size: 54px;
   margin: 20px 0;
   text-transform: uppercase;
-  font-family: 'Product Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 nav ul {
@@ -79,10 +80,11 @@ nav li {
 }
 
 nav a {
-  color: #b5b5b5;
+  color: #333333;
   text-decoration: none;
   font-size: 20px;
   margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .nav-links {
@@ -94,7 +96,7 @@ nav a::after {
 }
 
 nav a:hover {
-  color: #fff;
+  color: #ffd700;
 }
 
 /* Set main section styles */
@@ -126,14 +128,14 @@ section li {
 
 /* Set footer styles */
 footer {
-  background-color: #333;
-  color: #f2f2f2;
+  background-color: #333333;
+  color: #f1f1f1;
   font-size: 16px;
   padding: 20px;
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
 footer p {
   margin: 0;
 }
-

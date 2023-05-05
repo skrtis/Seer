@@ -6,10 +6,9 @@
 </head>
 <body>
     <label for="List">Choose an action:</label>
-
-    <select id="List" name="choices">
-        <option value="conversion">conversion</option>
-        <option value="algorithms">Algorithms</option>
+    <select id="List" onchange="location.href = this.value;">
+        <option value="fibonacci">Fibonacci Sequence</option>
+        <option value="algorithms">tbd</option>
         <option value="literature">literature</option>
     </select>
 </body>
