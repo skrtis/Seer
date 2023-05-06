@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h1>Fibonacci Calculator</h1>
-	<form method="post" action="{{ url_for('fibonacci.fibonacci') }}">
+	<form method="post" action="{{ url_for('fib.fibonacci') }}">
 		<label for="n">Enter input n:</label>
 		<input type="number" id="n" name="n" value="{{ request.form['n'] if request.method == 'POST' else '' }}" required>
 		<label for="k">Enter input k:</label>
