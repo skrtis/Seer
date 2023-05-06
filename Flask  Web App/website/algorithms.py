@@ -1,8 +1,10 @@
 from flask import Blueprint, render_template, request
-
+import re
 
 ##FIBONACCI ALGORITHM
 fib = Blueprint('fib', __name__)
+cnucleotides = Blueprint('cnucleotides', __name__)
+gccontent = Blueprint('gc', __name__)
 
 @fib.route('/fibonacci', methods=['GET', 'POST'])
 def fibonacci():
@@ -22,7 +24,7 @@ def fibonacci():
         return render_template('fibonacci.html', result=fin)
     return render_template('fibonacci.html')
 
-cnucleotides = Blueprint('cnucleotides', __name__)
+
 @cnucleotides.route('/counting-nucleotides', methods=['GET','POST'])
 #Counting DNA Nucleotides
 def countingnucleotides():
@@ -37,3 +39,19 @@ def countingnucleotides():
         a,c,t,g = str(m['A']),str(m['C']),str(m['G']),str(m['T'])
         return render_template('countingnucleotides.html', a=a,c=c,t=t,g=g)
     return render_template('countingnucleotides.html')
+
+@gccontent.route('/gccontent', methods=['GET', 'POST'])
+def gc_content():
+    if request.method == 'POST':
+        fasta_file = request.files['fasta_file']
+        fasta_data = fasta_file.read().decode('utf-8')
+        fasta_seqs = re.findall(r'>.+?\n([A-Za-z\n]+)', fasta_data, re.DOTALL)
+        d = {}
+        for seq in fasta_seqs:
+            seq = seq.replace('\n', '')
+            gc_content = ((seq.count('G') + seq.count('C')) / len(seq)) * 100
+            header = re.search(r'>(.+?)\n', fasta_data).group(1)
+            d[header] = gc_content
+        max_gc = max(d.items(), key=lambda x: x[1])
+        return render_template('gccontent.html', max_gc=max_gc)
+    return render_template('gccontent.html')
