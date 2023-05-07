@@ -4,7 +4,7 @@ import re
 ##FIBONACCI ALGORITHM
 fib = Blueprint('fib', __name__)
 cnucleotides = Blueprint('cnucleotides', __name__)
-gccontent = Blueprint('gc', __name__)
+gc = Blueprint('gc', __name__)
 
 @fib.route('/fibonacci', methods=['GET', 'POST'])
 def fibonacci():
@@ -40,18 +40,29 @@ def countingnucleotides():
         return render_template('countingnucleotides.html', a=a,c=c,t=t,g=g)
     return render_template('countingnucleotides.html')
 
-@gccontent.route('/gccontent', methods=['GET', 'POST'])
+@gc.route('/gccontent', methods=['GET', 'POST'])
 def gc_content():
     if request.method == 'POST':
         fasta_file = request.files['fasta_file']
-        fasta_data = fasta_file.read().decode('utf-8')
-        fasta_seqs = re.findall(r'>.+?\n([A-Za-z\n]+)', fasta_data, re.DOTALL)
-        d = {}
-        for seq in fasta_seqs:
-            seq = seq.replace('\n', '')
-            gc_content = ((seq.count('G') + seq.count('C')) / len(seq)) * 100
-            header = re.search(r'>(.+?)\n', fasta_data).group(1)
-            d[header] = gc_content
-        max_gc = max(d.items(), key=lambda x: x[1])
-        return render_template('gccontent.html', max_gc=max_gc)
+        fasta_data = fasta_file.read().decode('utf8').split('\n')
+        d ={}
+        cur = '' #use current variable as storage for temp key in dictionary 
+        for x in fasta_data:
+            if x[0] == '>':
+                cur = x
+                d[x] = '' #new key
+            elif x[0] != '>':
+                d[cur] += x
+        for key in d:
+            x = d[key]
+            gc = 0
+            for i in x:
+                if i == 'G' or i == 'C':
+                    gc += 1
+            gc = (gc*100)/len(x)
+            d[key] = gc
+        max_key = max(d, key=d.get) 
+        max_key= str(max_key).replace('>','')
+        max_val= str(round(max(d.values()), 6))
+        return render_template('gccontent.html',max_key=max_key, max_val=max_val)
     return render_template('gccontent.html')
