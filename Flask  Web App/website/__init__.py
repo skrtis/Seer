@@ -13,6 +13,7 @@ def create_app():
     from .algorithms import fib
     from .algorithms import cnucleotides
     from .algorithms import gc
+    from .algorithms import consensus
 
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(account, url_prefix='/')
@@ -22,4 +23,5 @@ def create_app():
     app.register_blueprint(fib, url_prefix='/algs')
     app.register_blueprint(cnucleotides, url_prefix='/algs') 
     app.register_blueprint(gc, url_prefix='/algs')
+    app.register_blueprint(consensus, url_prefix='/algs')
     return app

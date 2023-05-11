@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Consensus and Profile Calculator</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+	<h1>Consensus String Calculator</h1>
+	<form method="post" action="{{ url_for('consensus.consensus_profile') }}" enctype="multipart/form-data">
+		<label for="fasta_file">Upload FASTA file:</label>
+		<input type="file" id="fasta_file" name="fasta_file" accept=".txt">
+		<input type="submit" value="Calculate">
+	</form>
+	{% if fin %}
+		<p>
+            {{fin}}<br>{{fina}}<br>{{finc}}<br>{{fing}}<br>{{fingt}}
+        </p>
+	{% endif %}
+</body>
+</html>
