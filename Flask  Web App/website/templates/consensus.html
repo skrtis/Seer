@@ -2,15 +2,17 @@
 <html>
 <head>
 	<title>Consensus and Profile Calculator</title>
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/algstyle.css') }}">
 </head>
 <body>
+	<div style="text-align: center">
 	<h1>Consensus String Calculator</h1>
 	<form method="post" action="{{ url_for('consensus.consensus_profile') }}" enctype="multipart/form-data">
 		<label for="fasta_file">Upload FASTA file:</label>
 		<input type="file" id="fasta_file" name="fasta_file" accept=".txt">
 		<input type="submit" value="Calculate">
 	</form>
+	</div>
 	{% if fin %}
 		<p>
             {{fin}}<br>{{fina}}<br>{{finc}}<br>{{fing}}<br>{{fingt}}

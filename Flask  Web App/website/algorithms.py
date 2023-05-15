@@ -7,6 +7,8 @@ cnucleotides = Blueprint('cnucleotides', __name__)
 gc = Blueprint('gc', __name__)
 consensus = Blueprint('consensus',__name__)
 hamming = Blueprint('hamming',__name__)
+rnatoprotein = Blueprint('rnatoprotein', __name__)
+motif = Blueprint('motif', __name__)
 
 @fib.route('/fibonacci', methods=['GET', 'POST'])
 def fibonacci():
@@ -158,3 +160,38 @@ def hamming_dist():
                 c += 1
         return render_template('hamming.html', c=c)
     return render_template('hamming.html')
+
+@rnatoprotein.route('/rna-to-protein',methods=['GET','POST'])
+def rtp_converter():
+    if request.method == 'POST':
+        t = open('table.txt','r').read().split('\n')
+        data = request.files['rna_text']
+
+        ref = [i.split(' ') for i in t]
+
+        n=3
+        grouped = [data[i:i+n] for i in range(0,len(data),n)]
+
+        fin=''
+        for x in grouped:
+            for i in ref:
+                if x == i[0] and i[1]!='Stop':
+                    fin+=i[1]
+        return render_template('rnatoprotein.html', fin=fin)
+    return render_template('rnatoprotein.html')
+
+@motif.route('/motif',methods=['GET','POST'])
+def substring_finder():
+    if request.method == 'POST':
+        data = request.files['motif_text'].read().split('\n')
+        strand = data[0]
+        ans =''
+        n=len(data[1])
+        for i in range(len(strand)):
+            if data[1] == strand[i:i+n]:
+                if ans == '':
+                    ans += str(i+1)
+                else: 
+                    ans += ' '+str(i+1)
+        return render_template('motif.html', ans=ans)
+    return render_template('motif.html')

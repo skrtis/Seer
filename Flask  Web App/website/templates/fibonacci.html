@@ -2,9 +2,10 @@
 <html>
 <head>
 	<title>Fibonacci Calculator</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/algstyle.css') }}">
 </head>
 <body>
+	<div style="text-align: center">
 	<h1>Fibonacci Calculator</h1>
 	<form method="post" action="{{ url_for('fib.fibonacci') }}">
 		<label for="n">Enter input n:</label>
@@ -13,6 +14,7 @@
 		<input type="number" id="k" name="k" value="{{ request.form['k'] if request.method == 'POST' else '' }}" required>
 		<input type="submit" value="Calculate">
 	</form>
+	</div>
 	{% if result %}
 		<p>The output of the algorithm is: {{ result }}</p>
 	{% endif %}

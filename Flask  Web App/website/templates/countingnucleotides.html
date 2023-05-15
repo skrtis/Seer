@@ -2,15 +2,17 @@
 <html>
 <head>
 	<title>Counting DNA Nucleotides</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/algstyle.css') }}">
 </head>
 <body>
+	<div style="text-align: center">
 	<h1>Counting DNA Nucleotides for String Input</h1>
 	<form method="post" action="{{ url_for('cnucleotides.countingnucleotides') }}">
 		<label for="strand">Enter DNA string</label>
 		<input type="text" id="strand" name="strand" value="{{ request.form['strand'] if request.method == 'POST' else '' }}" required>
 		<input type="submit" value="Calculate">
 	</form>
+	</div>
 	{% if a %}
 		<p>The output of the algorithm is:<br> 
 			Adenine Count: {{a}} <br>
