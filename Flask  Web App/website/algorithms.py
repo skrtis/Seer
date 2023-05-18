@@ -126,7 +126,6 @@ def consensus_profile():
         fin, fina, finc, fing, fint = '', '', '','',''
         for i in consensus:
             fin += i
-        print(fin)
 
         for i in A:
             fina +=str(i)
@@ -150,10 +149,10 @@ def consensus_profile():
         return render_template('consensus.html', fin = fin, fina=fina, finc=finc, fing=fing,fint=fint)
     return render_template('consensus.html')
 
-@hamming.route('/hamming',methods=['GET','POST'])
-def hamming_dist():
+@hamming.route('/hamming',methods=['GET','POST']) #THIS IS NOT COMPLETED
+def hamming_dist(): 
     if request.method == 'POST':
-        f = open('rosalind_hamm.txt','r').read().split('\n')
+        f = request.files['ham_text'].read().decode('utf8').split('\n')
         c = 0
         for i in range(len(f[1])):
             if f[0][i]!= f[1][i]:
@@ -164,14 +163,17 @@ def hamming_dist():
 @rnatoprotein.route('/rna-to-protein',methods=['GET','POST'])
 def rtp_converter():
     if request.method == 'POST':
-        t = open('table.txt','r').read().split('\n')
-        data = request.files['rna_text']
-
+        data = request.files['rna'].read().decode('utf8')
+        t = ['UUU F', 'CUU L', 'AUU I', 'GUU V', 'UUC F', 'CUC L', 'AUC I', 'GUC V', 'UUA L', 
+             'CUA L', 'AUA I', 'GUA V', 'UUG L', 'CUG L', 'AUG M', 'GUG V', 'UCU S', 'CCU P', 
+             'ACU T', 'GCU A', 'UCC S', 'CCC P', 'ACC T', 'GCC A', 'UCA S', 'CCA P', 'ACA T', 
+             'GCA A', 'UCG S', 'CCG P', 'ACG T', 'GCG A', 'UAU Y', 'CAU H', 'AAU N', 'GAU D', 
+             'UAC Y', 'CAC H', 'AAC N', 'GAC D', 'UAA Stop', 'CAA Q', 'AAA K', 'GAA E', 'UAG Stop', 
+             'CAG Q', 'AAG K', 'GAG E', 'UGU C', 'CGU R', 'AGU S', 'GGU G', 'UGC C', 'CGC R', 'AGC S', 
+             'GGC G', 'UGA Stop', 'CGA R', 'AGA R', 'GGA G', 'UGG W', 'CGG R', 'AGG R', 'GGG G']
         ref = [i.split(' ') for i in t]
-
         n=3
         grouped = [data[i:i+n] for i in range(0,len(data),n)]
-
         fin=''
         for x in grouped:
             for i in ref:
@@ -183,7 +185,7 @@ def rtp_converter():
 @motif.route('/motif',methods=['GET','POST'])
 def substring_finder():
     if request.method == 'POST':
-        data = request.files['motif_text'].read().split('\n')
+        data = request.files['motif_text'].read().decode("utf8").split('\n')
         strand = data[0]
         ans =''
         n=len(data[1])

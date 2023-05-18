@@ -7,7 +7,8 @@ def create_app():
     from .views import views
     from .auth import account
     from .dropdown import lists
-
+    from .button import homebut
+    from .search import search
 
     #import algorithms
     from .algorithms import fib
@@ -17,11 +18,14 @@ def create_app():
     from .algorithms import hamming
     from .algorithms import rnatoprotein
     from .algorithms import motif
+ 
 
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(account, url_prefix='/')
     app.register_blueprint(lists, url_prefix='/')
-    
+    app.register_blueprint(homebut,url_prefix='/')
+    app.register_blueprint(search,url_prefix='/')
+
     #implement algs
     app.register_blueprint(fib, url_prefix='/algs')
     app.register_blueprint(cnucleotides, url_prefix='/algs') 
