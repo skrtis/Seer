@@ -47,8 +47,8 @@
             </button>
         <div>
             <form method ="post" action="{{url_for('search.searchalgs')}}">
-                <div class="search-box" style="width: 50%;">
-                    <input type="text" id='q' name="q" placeholder="Enter Algorithm Shortcut" value="{{ request.form['q'] if request.method == 'POST' else '' }}" required>
+                <div class="search-box" style="width: 80%;">
+                    <input type="text" id='q' name="q" placeholder="Enter Shortcut" value="{{ request.form['q'] if request.method == 'POST' else '' }}" required>
                     <button type="submit" value="enter"></button>
                 </div>
             </form>
@@ -58,7 +58,8 @@
 
         <main>
             <div style="text-align: center;">
-                
+                <h1 style="font-size: 80px;">A new way to <span><div style="color:#f05454;">process data.</div></span></h1>
+    
                 
 
                 <nav>
@@ -71,23 +72,7 @@
                 </nav>
             </div>
 
-            <div style="text-align: center;">
-                <section>
-                    <h2>About Us</h2>
-                    <p>(Our name) hopes to provide both benefits for those of a bioinformatics field as well as those who are hoping to learn about bioinformatics.</p>
-                </section>
-
-                <section>
-                    <h2>What Does This Application Provide?</h2>
-                    <div style="text-align: center;">
-                        <li>File conversion</li>
-                        <li>Algorithms for certain genetic scenarios</li>
-                        <li>tbd</li>
-                        <li>tbd</li>
-                        <li>tbd</li>
-                    </div>
-                </section>
-            </div>
+            
         </main>
 
         <!--<footer>
