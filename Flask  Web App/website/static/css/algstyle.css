@@ -1,11 +1,17 @@
 /* Import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2family=Courier+Prime');
 
 /* Set body styles */
 body {
   background-color: #f1f1f1;
   color: #333333;
   font-family: 'Montserrat', sans-serif;
+}
+
+.courier {
+  font-family: 'Courier New', Courier, monospace;
+  color:black
 }
 
 /* Set header styles */
@@ -141,6 +147,7 @@ footer p {
 }
 
 p{
+  font-family: 'Courier New', Courier, monospace;
   color:black
 }
 
