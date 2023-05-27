@@ -1,9 +1,0 @@
-#Counting DNA Nucleotides
-strand = input("Enter DNA Strand: ")
-m = {}
-for i in strand:
-    if i not in m:
-        m[i]=0
-    if i in m:
-        m[i] += 1
-print(str(m['A']) +' '+ str(m['C']) +' '+str(m['G'])+' '+str(m['T']))
