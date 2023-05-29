@@ -8,12 +8,12 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     </head>
 
-    <body>
+    <body style="padding-top:150px">
         <header style="display:flex; justify-content: space-between;min-height: 15vh;">
             <div style="flex:1;">
                 <button type="button" style="background: none; border: none; padding: 0; size:10vh;">
                     <a href="{{ url_for('homebut.homebutton') }}">
-                    <svg width="50%" height="50%" viewBox="0 0 1920 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+                    <svg class="logo" width="50%" height="50%" viewBox="0 0 1920 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
                         <g transform="matrix(1,0,0,1,40.8023,-24.0821)">
                             <text x="293.121px" y="814.018px" style="font-family:'ProductSans-Regular', 'Product Sans', sans-serif;font-size:698.146px;fill:rgb(31,39,48);">S   R</text>
                         </g>
@@ -74,30 +74,20 @@
                             <td>Outputs FASTA format text file for plain text sequence file input.</td> 
                         </tr> 
                         <tr>
-                            <td><a href=/algs/gccontent>GC Content</a></td>
-                            <td>GC</td>
-                            <td>Outputs GC Content for FASTA Input</td>
-                        </tr>
+                            <td><a href=/conversion/fasta-plain>FASTA Format Text File to Plain Text Sequence File</a></td> 
+                            <td>FTPT</td>
+                            <td>Outputs plain text format text file for FASTA sequence file input.</td> 
+                        </tr> 
                         <tr>
-                            <td><a href=/algs/consensus>Consensus String and Matrix</a></td>
-                            <td>CSM</td>
-                            <td>Outputs Consensus String and Matrix from FASTA Input of Strings of Equal Length</td>
-                        </tr>
+                            <td><a href=/conversion/fasta-embl>FASTA Format Text File to EMBL Format Text File</a></td> 
+                            <td>FTE</td>
+                            <td>Outputs EMBL format text file for FASTA sequence file input.</td> 
+                        </tr>  
                         <tr>
-                            <td><a href="/algs/rna-to-protein">RNA to Protein Conversion</a></td>
-                            <td>RNAP</td>
-                            <td>Outputs protein string encoded from input of mRNA string</td>
-                        </tr>
-                        <tr>
-                            <td><a href="algs/hamming">Hamming Distance Calculator</a></td>
-                            <td>HD</td>
-                            <td>Outputs Hamming distance for input of two strings in FASTA format</td>
-                        </tr>
-                        <tr>
-                            <td><a href="/algs/fibonacci">Fibonacci Calculator</a></td>
-                            <td>FI</td>
-                            <td>Models Population Growth</td>
-                        </tr>
+                            <td><a href=/conversion/embl-fasta>EMBL Format Text File to FASTA Format Text File</a></td> 
+                            <td>ETF</td>
+                            <td>Outputs FASTA format text file for EMBL sequence file input.</td> 
+                        </tr>    
                     </table>
                 </center>
             </div>

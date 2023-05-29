@@ -9,6 +9,28 @@ consensus = Blueprint('consensus',__name__)
 hamming = Blueprint('hamming',__name__)
 rnatoprotein = Blueprint('rnatoprotein', __name__)
 motif = Blueprint('motif', __name__)
+transcription = Blueprint('transcription',__name__)
+complement = Blueprint('complement',__name__)
+
+
+@transcription.route('/transcription',methods=['GET','POST'])
+def DNAtranscribe():
+    if request.method=='POST':
+        strand  = request.form['strand']
+        strand = strand.replace('T','U')
+        return render_template('transcription.html', result = strand )
+    return render_template('transcription.html')
+
+
+@complement.route('/complement',methods=['GET','POST'])
+def revcomp():
+    if request.method == 'POST':
+        strand = request.form['strand']
+        strand = strand.replace('A','B').replace('T','A').replace('C','D').replace('G','C').replace('B','T').replace('D','G')
+        #All the original As are now Bs #All the original Cs are now Ds
+        strand = strand[::-1] #reverses the strand
+        return render_template('complement.html', result = strand)
+    return render_template('complement.html')
 
 @fib.route('/fibonacci', methods=['GET', 'POST'])
 def fibonacci():
@@ -147,7 +169,7 @@ def consensus_profile():
         return render_template('consensus.html', fin = fin, fina=fina, finc=finc, fing=fing,fint=fint)
     return render_template('consensus.html')
 
-@hamming.route('/hamming',methods=['GET','POST']) #THIS IS NOT COMPLETED
+@hamming.route('/hamming',methods=['GET','POST']) 
 def hamming_dist(): 
     if request.method == 'POST':
         f = request.files['ham_text'].read().decode('utf8').split('\n')

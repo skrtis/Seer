@@ -4,9 +4,10 @@
 
 /* Set body styles */
 body {
+  padding-top:150px;
   background-color: #f1f1f1;
   color: #333333;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Product Sans', sans-serif;
 }
 
 .courier {
@@ -22,7 +23,7 @@ header {
   padding: 20px;
   background-color: #333333;
   color: #f1f1f1;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Product Sans', sans-serif;
 }
 
 header a {
@@ -149,5 +150,14 @@ footer p {
 p{
   font-family: 'Courier New', Courier, monospace;
   color:black
+}
+
+
+.logo {
+  position: fixed;
+  top: 10px; /* Adjust the top position as needed */
+  left: 100px; /* Adjust the left position as needed */
+  height: 200px;
+  width: 200px;
 }
 

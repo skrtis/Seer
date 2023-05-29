@@ -8,12 +8,12 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     </head>
 
-    <body>
+    <body style="padding-top: 150px">
         <header style="display:flex; justify-content: space-between;min-height: 15vh;">
             <div style="flex:1;">
                 <button type="button" style="background: none; border: none; padding: 0; size:10vh;">
                     <a href="{{ url_for('homebut.homebutton') }}">
-                    <svg width="50%" height="50%" viewBox="0 0 1920 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+                    <svg class = "logo" width="50%" height="50%" viewBox="0 0 1920 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
                         <g transform="matrix(1,0,0,1,40.8023,-24.0821)">
                             <text x="293.121px" y="814.018px" style="font-family:'ProductSans-Regular', 'Product Sans', sans-serif;font-size:698.146px;fill:rgb(31,39,48);">S   R</text>
                         </g>
@@ -68,6 +68,16 @@
                             <th style="width:10%;">ID</th>
                             <th style="width:70%;">Description</th>
                         </tr>
+                        <tr>
+                            <td><a href=/algs/transcription>DNA to RNA Transcription</a></td> 
+                            <td>DRT</td>
+                            <td>Outputs Quantities of Each Nucleotide for DNA String Input</td> 
+                        </tr> 
+                        <tr>
+                            <td><a href=/algs/complement>Reverse Complement of DNA</a></td> 
+                            <td>RCD</td>
+                            <td>Outputs Quantities of Each Nucleotide for DNA String Input</td> 
+                        </tr> 
                         <tr>
                             <td><a href=/algs/counting-nucleotides>Counting Nucleotides</a></td> 
                             <td>CN</td>

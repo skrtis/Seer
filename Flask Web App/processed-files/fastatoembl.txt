@@ -1,0 +1,13 @@
+ID ex1
+XX
+AC a
+XX
+DE a
+DE A
+SQ Sequence 243 BP; 60 A; 61 C; 61 G; 61 T;
+   actgactgac tgactgactg actgactgac tgactgactg actgactgac tgactgactg  60
+   actgactgac tgactgactg actgactgac tgactgactg actgactgac tgactgactg  120
+   actgactgac tgactgactg actgactgac tgactgactg actgactgac tgactgactg  180
+   actgactgac tgactgactg actgactgac tgactgactg actgactgac tgactgactg  240
+   ctg 
+//

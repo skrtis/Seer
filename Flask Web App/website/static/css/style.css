@@ -164,3 +164,12 @@ table,th,td{
   display: grid;
   place-content: center;
 }
+
+
+.logo {
+    position: fixed;
+    top: 10px; /* Adjust the top position as needed */
+    left: 100px; /* Adjust the left position as needed */
+    height: 200px;
+    width: 200px;
+}

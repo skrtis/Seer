@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>File Conversion</title>
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/algstyle.css') }}">
+	<title>Complement Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/algstyle.css') }}">
 	<div style="text-align: left;">
 		<button type="button" style="background: none; border: none; padding: 0;"><a href="{{ url_for('homebut.homebutton') }}">
 			<svg class= "logo" width="50%" height="50%" viewBox="0 0 1920 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
@@ -42,18 +42,22 @@
 </head>
 <body>
 	<div style="text-align: center">
-	<h1>PLAIN TO FASTA CONVERSION</h1>
-	
-	<form method="post" action="/conversion/plain-fasta" enctype="multipart/form-data">
-		<label for="plain_file">Upload plain text file:</label>
-		<input type="file" id="plain_file" name="plain_file" accept=".txt">
-		<label for="linelength">Enter Preferred line length:</label>
-		<input type="number" id="linelength" name="linelength" value="{{ request.form['linelength'] if request.method == 'POST' else '' }}" required>
-		<label for="sequence_id">Enter Sequence ID:</label>
-		<input type="text" id="sequence_id" name="sequence_id" value="{{ request.form['sequence_id'] if request.method == 'POST' else '' }}" required>
-	
-		<input type="submit" value="Download FASTA">
+	<h1>Reverse Complement for a DNA Strand</h1>
+	<form method="post" action="{{ url_for('complement.revcomp') }}">
+		<label for="strand">Enter DNA string</label>
+		<input type="text" id="strand" name="strand" value="{{ request.form['strand'] if request.method == 'POST' else '' }}" required>
+		<input type="submit" value="Process">
 	</form>
 	</div>
+	{% if result %}
+		<div style="text-align: center">
+		<div class="courier">
+		<p>
+             Reverse Complement Printed...<br>
+             {{result}}
+		</p>
+		</div>
+		</div>
+	{% endif %}
 </body>
 </html>
