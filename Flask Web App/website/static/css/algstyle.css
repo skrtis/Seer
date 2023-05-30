@@ -1,6 +1,13 @@
 /* Import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
 @import url('https://fonts.googleapis.com/css2family=Courier+Prime');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+
+input {
+  font-family: 'Varela Round', sans-serif;
+  font-size: 20px;
+}
 
 /* Set body styles */
 body {
@@ -12,7 +19,8 @@ body {
 
 .courier {
   font-family: 'Courier New', Courier, monospace;
-  color:black
+  color:black;
+  font-size: 20px;
 }
 
 /* Set header styles */
@@ -21,9 +29,10 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #333333;
   color: #f1f1f1;
   font-family: 'Product Sans', sans-serif;
+  position:fixed;
+  top:0;
 }
 
 header a {
@@ -37,6 +46,11 @@ header a {
 
 header a:hover {
   color: #ffd700;
+}
+
+h1 {
+  color: #f05454;
+  font-size: 40px;
 }
 
 .search-box {
@@ -121,6 +135,7 @@ section p {
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 40px;
+
 }
 
 section ul {
@@ -147,17 +162,57 @@ footer p {
   margin: 0;
 }
 
-p{
-  font-family: 'Courier New', Courier, monospace;
-  color:black
+p {
+  font-family: 'Roboto';
+  color:black;
+  font-size: 20px;
+  
 }
 
 
 .logo {
-  position: fixed;
+  position:absolute;
   top: 10px; /* Adjust the top position as needed */
-  left: 100px; /* Adjust the left position as needed */
+  left: 50%; /* Adjust the left position as needed */
+  transform: translateX(-50%);
   height: 200px;
   width: 200px;
 }
 
+.container {
+  display: flex;
+}
+
+.half {
+  width: 50%;
+  height: 120vh;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.left-half {
+  background-color:  #f05454;
+}
+
+.right-half {
+  background-color: white;
+}
+
+
+code {
+  display: inline-block;
+  text-align:left;
+  background-color: #f6f8fa;
+  color: #24292e;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  border-radius: 4px;
+  margin: 20px;
+  width: 50%;
+  padding: 10px;
+  white-space: pre-wrap;
+}
+
+pre{
+  margin:0;
+}

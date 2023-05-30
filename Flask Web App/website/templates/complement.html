@@ -42,17 +42,21 @@
 </head>
 <body>
 	<div style="text-align: center">
-	<h1>Reverse Complement for a DNA Strand</h1>
-	<form method="post" action="{{ url_for('complement.revcomp') }}">
-		<label for="strand">Enter DNA string</label>
-		<input type="text" id="strand" name="strand" value="{{ request.form['strand'] if request.method == 'POST' else '' }}" required>
-		<input type="submit" value="Process">
-	</form>
+		<h1>Reverse Complement for a DNA Strand</h1>
+		<p style = "width: 80%; margin-left: 170px; margin-right: 100px; line-height: 25px;">The reverse complement algorithm takes a DNA plain sequence input and outputs the reverse complement of the sequence. This is achieved in the program by replacing all the nucleotides with their complements (A-T, C-G) where adenine is replaced with thymine, cytosine is replaced with guanine and vice versa. Then the string is reversed to produce the reverse complement. The reverse complement of a DNA string is important due to DNA being antiparallel by nature, where the two complementary strands of DNA have opposite orientations, where one strand moves from 3’ to 5’ and the other from 5’ to 3’, which describes the directionality of DNA’s phosphate sugar backbone. (Armstrong, 2021).<br>
+			The reverse complement is important because, since DNA strands are oriented opposite to each other, the correct corresponding strand would not only be the complement, but the reverse complement. (Armstrong, 2021). Understanding the reverse complement strand is important due to its applications in technologies like DNA sequencing or RC-PCR (reverse complement polymerase chain reaction), where reverse complements of DNA is used for DNA amplification or replication, as the reverse complement of a DNA strand is necessary to copy DNA. (Armstrong, 2021). An important application of RC-PCR technology was SARS-CoV-2 whole genome sequencing, which allowed for phylogenetic and variant analysis of the virus’s mutations during the pandemic in 2021. (Coolen et al., 2021). 
+		</p>
+		
+		<form style = "size: 80%;" method="post" action="{{ url_for('complement.revcomp') }}">
+			<label for="strand">Enter DNA string:</label>
+			<input type="text" id="strand" name="strand" value="{{ request.form['strand'] if request.method == 'POST' else '' }}" required>
+			<input type="submit" value="Process">
+		</form>
 	</div>
 	{% if result %}
 		<div style="text-align: center">
 		<div class="courier">
-		<p>
+		<p class = 'courier'>
              Reverse Complement Printed...<br>
              {{result}}
 		</p>

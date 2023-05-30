@@ -2,8 +2,11 @@
 <html>
 <head>
 	<title>Motif</title>
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/algstyle.css') }}">
-	<div style="text-align: left;">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/algstyle.css') }}">	
+</head>
+
+<body>
+	<div>
 		<button type="button" style="background: none; border: none; padding: 0;"><a href="{{ url_for('homebut.homebutton') }}">
 			<svg class= "logo" width="50%" height="50%" viewBox="0 0 1920 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
 				<g transform="matrix(1,0,0,1,40.8023,-24.0821)">
@@ -39,18 +42,55 @@
 				</g>
 			</svg>
 		</a></button>
-</head>
-<body>
-    <div style="text-align: center">
-	<h1>Substrand Counter</h1>
-	<form method="post" action="{{ url_for('motif.substring_finder') }}" enctype="multipart/form-data">
-		<label for="motif_text">Upload file:</label>
-		<input type="file" id="motif_text" name="motif_text" accept=".txt">
-		<input type="submit" value="Calculate">
-	</form>
-    </div>
-	{% if ans %}
-		<p>{{ ans }}</p>
-	{% endif %}
+	</div>
+	<div class = 'container'>		
+		<div class = "half left-half">
+			<h1 style = "color: white;font-size: 60px; margin-left: 20px;">Substrand Counter</h1>
+			<h2 style = "color: rgb(219, 211, 211);font-size: 20px; margin-left: 20px;">ID: Finding Common Motif<br>Time Complexity: Linear<br>Input-Type:Two Plain Text Sequence Strings<br>Input: Sequence String and Motif String<br>Output: Indices of Sequence String </h2><br>
+			<p style = "color: white; width: 80%; margin-left: 20px; margin-right: 100px; line-height: 25px; font-family: 'Varela Round', sans-serif;"><b>The motif algorithm coded within the web application is an algorithm which searches for substrings within a strand inputted by the user. The text file that is uploaded must have the strand on the first line with the desired substring on the second. Upon taking the strand, the algorithm searches for the ordered character at which the substring occurs, if applicable. The numbered characters where the substring is found is then outputted.<br><br>
+				<br> This is useful in genome analysis and bioinformatics as repetitive sequences within a DNA strand can be recorded and can be used in the identification of potential trinucleotide repeat disorders, a particularly harmful class of DNA motifs that can appear in non-coding regions of sequences, which is the causing factor behind disorders such as Huntington’s disease. Trinucleotide repeat disorders are the results of repetitive sequences that mostly impact the nervous system. These disorders are genetically inherited as each generation has more repetitive sequences present in DNA (Ramakrishnan & Gupta, 2022). </b></p>
+		</div>
+
+		<div class = "half right-half">
+			<div style="text-align: center; padding-top: 100px;">
+
+				<form method="post" action="{{ url_for('motif.substring_finder') }}" enctype="multipart/form-data">
+					<label for="motif_text" style="font-size: 30px;">Input File</label><br><br>
+					<input style="margin-left: 130px; font-size: 20px;" type="file" id="motif_text" name="motif_text" accept=".txt"><br><br>
+					<input type="submit" value="Calculate" style="font-size: 20px">
+				</form>
+				</div>
+				
+				{% if ans %}
+				<p class ='courier'>{{ ans }}</p>
+				{% endif %}
+			
+			<div style ='display:flex;justify-content: center;'>
+				<code style="white-space: pre; display: block; overflow-x: auto; max-width: 100%;">
+					<pre>data = open('data.txt','r').read().split('\n')
+strand = data[0]
+ans =''
+n=len(data[1])
+for i in range(len(strand)):
+	if data[1] == strand[i:i+n]:
+		if ans == '':
+			ans += str(i+1)
+		else: 
+			ans += ' '+str(i+1)
+print(ans) 
+					</pre>
+				</code>
+				
+			</div>
+			<p style='margin-left: 80px; margin-right: 70px; font-family: ProductSans-Regular;'>
+				The code functions by storing the both the sequence and motif substring. A for loop iterates through the sequence string, comparing the substring to the consecutive characters of the string of the substring length, and recording all the indices of the sequence string that matched. 
+			</p>
+		</div>
+	</div>
+	
+
+    
+
+
 </body>
 </html>

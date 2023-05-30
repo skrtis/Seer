@@ -45,11 +45,11 @@
 	<h1>EMBL TO FASTA CONVERSION</h1>
 	
 	<form method="post" action="/conversion/embl-fasta" enctype="multipart/form-data">
-		<label for="embl_file">Upload FASTA file:</label>
+		<label for="embl_file">Upload EMBL file:</label>
 		<input type="file" id="embl_file" name="embl_file" accept=".txt"><br><br>
-		<input type="hidden" name="file1" value="{{ file1 }}">
-   		<input type="hidden" name="file2" value="{{ file2 }}">
-        <input type="submit" value='Download EMBL File'>
+		<label for="meta">Include METADATA/DE? y/n:</label>
+		<input type="text" id='meta' name='meta' value="{{ request.form['meta'] if request.method == 'POST' else '' }}" required><br><br>
+        <input type="submit" value='Download FASTA File'>
 	</form>
 	</div>
 </body>

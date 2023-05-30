@@ -86,6 +86,7 @@ def fasta_e1():
         acc=request.form['accession'] #find accession number
 
 
+
         #Collecting sequence information: Sequence # BP; # A; # C; # G; # T; # other;
         m = {'A':0,'C':0,'G':0,'T':0} #nucleotide dictionary
         for i in d[1]:
@@ -147,6 +148,7 @@ def embl_f():
         import re
         f = request.files['embl_file'].read().decode('utf8').split('\n')
 
+        
         #store sequence and fasta data and additional information
         accession = ''
         idstr = ''
@@ -175,6 +177,10 @@ def embl_f():
         with open(output_file_path,'w') as f:
             f.write(">"+idstr+'\n')
             f.write(''.join(refinedseq))
-        
+            metabool = request.form['meta']
+            if metabool == 'y':
+                f.write('\n\n\n****METADATA****\n')
+                for i in definition:
+                    f.write(i + '\n')
         return redirect(url_for('embl_fasta_download.downloademblfasta', file=output_file_path))
     return render_template('embl_fasta.html') 

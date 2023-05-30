@@ -1,9 +1,9 @@
 ID ex1
 XX
-AC a
+AC O90
 XX
-DE a
-DE A
+DE ab
+DE bc
 SQ Sequence 243 BP; 60 A; 61 C; 61 G; 61 T;
    actgactgac tgactgactg actgactgac tgactgactg actgactgac tgactgactg  60
    actgactgac tgactgactg actgactgac tgactgactg actgactgac tgactgactg  120
