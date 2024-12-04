@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Consensus and Profile Calculator</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/algstyle.css') }}">
+	<div style="text-align: left;">
+		<button type="button" style="background: none; border: none; padding: 0;"><a href="{{ url_for('homebut.homebutton') }}">
+			<svg class= "logo" width="50%" height="50%" viewBox="0 0 1920 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+				<g transform="matrix(1,0,0,1,40.8023,-24.0821)">
+					<text x="293.121px" y="814.018px" style="font-family:'ProductSans-Regular', 'Product Sans', sans-serif;font-size:698.146px;fill:rgb(31,39,48);">S   R</text>
+				</g>
+				<g>
+					<g transform="matrix(0.735828,0,0,1,176.325,63.6133)">
+						<rect x="780.841" y="98.507" width="284.184" height="44.118" style="fill:rgb(240,84,84);"/>
+					</g>
+					<g transform="matrix(0.695182,0,0,1,219.614,172.268)">
+						<rect x="780.841" y="98.507" width="284.184" height="44.118" style="fill:rgb(240,84,84);"/>
+					</g>
+					<g transform="matrix(0.500853,0,0,1,426.579,280.922)">
+						<rect x="780.841" y="98.507" width="284.184" height="44.118" style="fill:rgb(240,84,84);"/>
+					</g>
+					<g transform="matrix(-0.735828,0,0,-1,1743.68,1030.33)">
+						<rect x="780.841" y="98.507" width="284.184" height="44.118" style="fill:rgb(240,84,84);"/>
+					</g>
+					<g transform="matrix(-0.695182,0,0,-1,1700.39,921.672)">
+						<rect x="780.841" y="98.507" width="284.184" height="44.118" style="fill:rgb(240,84,84);"/>
+					</g>
+					<g transform="matrix(-0.500853,0,0,-1,1493.42,813.018)">
+						<rect x="780.841" y="98.507" width="284.184" height="44.118" style="fill:rgb(240,84,84);"/>
+					</g>
+				</g>
+				<g transform="matrix(1,0,0,1,-30.7189,1.13687e-13)">
+					<g transform="matrix(0.821412,0,0,0.685484,197.873,-65.1867)">
+						<path d="M732.694,278.894L673.376,278.894C672.855,389.111 694.027,498.503 735.505,600.115C778.426,705.262 843.088,802.078 927.956,882.86L1001.36,882.86C815.308,694.26 713.4,493.838 732.694,278.894Z" style="fill:rgb(31,39,48);"/>
+					</g>
+					<g transform="matrix(-0.821412,-1.00594e-16,8.39476e-17,-0.685484,1783.1,1145.19)">
+						<path d="M732.694,278.894L673.376,278.894C672.316,503.16 761.073,724.011 927.956,882.86L1001.36,882.86C815.308,694.26 713.4,493.838 732.694,278.894Z" style="fill:rgb(31,39,48);"/>
+					</g>
+				</g>
+			</svg>
+		</a></button>
+</head>
+<body>	
+	<div class = 'container'>		
+		<div class = "half left-half" style="height: 250vh;">
+			<h1 style = "color: white;font-size: 60px; margin-left: 20px;">Consensus String Calculator</h1>
+			<h2 style = "color: rgb(219, 211, 211);font-size: 20px; margin-left: 20px;">ID: Consensus and Profile Sequencing<br>Time Complexity: Quadratic<br>Input-Type:FASTA file<br>Input: N strings of Equal Length<br>Output: Consensus String and 4 x N Profile Matrix</h2><br>
+			<p style = "color: white; width: 80%; margin-left: 20px; margin-right: 100px; line-height: 25px; font-family: 'Varela Round', sans-serif;"><b>The Profile and Consensus String algorithm generates a consensus string by finding the most common nucleotide base of each position of a strand. The algorithm functions by taking a FASTA format text file input that contains multiple strings of equal length, then outputting a 4 x N profile matrix, where N is the length of each of the strings. The algorithm functions by reading sequences of equal length from a FASTA file, then iterating through each of the positions of the sequence, such as comparing every first character in the sequences, followed by the second etc. These characters are compared by counting the amounts of each nucleotide in all of the first characters of the sequences and printing the result in the matrix, where each column shows the counts of the bases for each character in the sequences. These numbers are then compared and the base with the highest count from each column is taken to create a new string, of all the bases of highest frequency in their respective positions.<br><br>
+				<br> Consensus strings are used for comparative studies between different species (Vaschetto, 2022). The most common variants between certain organisms can be derived from these sequences. Consensus strings can be used to find evolutionary relationships between various species. This is important in finding commonalities among certain species. For example, consensus strings contributed to discovering the connection between avians and prehistoric organisms. By analyzing the DNA between birds and dinosaurs, similarities between the two have been noticed (Andrei, 2018). </b></p>
+		</div>
+
+		<div class = "half right-half" style="height: 250vh">
+			<div style="text-align: center; padding-top: 100px;">
+				<form method="post" action="{{ url_for('consensus.consensus_profile') }}" enctype="multipart/form-data">
+					<label for="fasta_file" style="font-size: 30px">Upload FASTA file:</label> 
+					<input style="margin-left: 130px; font-size: 20px;padding-top: 20px;" type="file" type="file" id="fasta_file" name="fasta_file" accept=".txt"><br><br>
+					<input type="submit" value="Calculate" style="font-size: 20px">
+				</form>
+				</div>
+				
+				{% if fin %}
+				<div class="courier">
+					<p>
+						<div style="text-align: center">
+						{{fin}}<br>{{fina}}<br>{{finc}}<br>{{fing}}<br>{{fint}}
+						</div>
+					</p>
+				</div>
+				{% endif %}
+			
+			<div style ='display:flex;justify-content: center;'>
+				<code style="white-space: pre; display: block; overflow-x: auto; max-width: 100%;">
+					<pre>
+f = open('input.txt',"r").read().split('\n')
+#read fasta file
+cur = ''
+matrix=[]
+for x in f:
+	if x[0] == '>':
+		matrix.append(cur) #append current to list
+		cur=''
+	elif x[0]!='>':
+		cur+=x
+matrix.append(cur) #append last value
+del matrix[0] #delete blank object at start of list
+
+consensus = [] #consensus string stored in list
+#formatting actg strings to print matrix
+A = []
+C = []
+G = []
+T = []
+
+a,c,g,t = 0,0,0,0 #initialize vars
+for x in range(len(matrix[0])):    
+	for i in matrix: #count the nucleotides for each index of each object in list
+		if i[x] == 'A':
+			a+=1
+		elif i[x] == 'C':
+			c+=1
+		elif i[x] == 'G':
+			g+=1
+		elif i[x] == 'T':
+			t+=1
+	A.append(a)
+	C.append(c)
+	G.append(g)
+	T.append(t)
+	x = max(a,c,t,g)
+	if x == a:
+		consensus.append('A')
+	elif x == c:
+		consensus.append('C')
+	elif x == g:
+		consensus.append('G')
+	elif x == t:
+		consensus.append('T') 
+	a,c,t,g = 0,0,0,0 #reinitialize vars
+
+#formatting and printing (iterate through each list)
+fin, fina, finc, fing, fint = '', '', '','',''
+for i in consensus:
+	fin += i
+print(fin)
+
+for i in A:
+	fina +=str(i)
+	fina +=' '
+print('A: '+fina.rstrip())
+
+for i in C:
+	finc +=str(i)
+	finc +=' '
+print('C: '+finc.rstrip())
+
+for i in G:
+	fing +=str(i)
+	fing +=' '
+print('G: '+fing.rstrip())
+
+for i in T:
+	fint +=str(i)
+	fint +=' '
+print('T: '+fint.rstrip())
+					</pre>
+				</code>
+				
+			</div>
+			<p style='margin-left: 80px; margin-right: 70px; font-family: ProductSans-Regular;'>
+				The code functions by storing the both the sequence and motif substring. A for loop iterates through the sequence string, comparing the substring to the consecutive characters of the string of the substring length, and recording all the indices of the sequence string that matched. 
+			</p>
+		</div>
+	</div>
+
+	
+</body>
+</html>

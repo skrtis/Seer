@@ -1,0 +1,4 @@
+>ABC
+can you read this string
+>AGC
+yes you can read this string
