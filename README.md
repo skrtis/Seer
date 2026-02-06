@@ -164,35 +164,6 @@ Every algorithm is an implementation of a problem from [Rosalind](http://rosalin
 
 ---
 
-## ⚠️ Codebase Hygiene — Issues Found & Fixed
-
-A thorough review of the repository uncovered the following software engineering issues:
-
-### ✅ Fixed
-
-| # | Issue | Severity |
-|---|---|---|
-| 1 | **No `.gitignore` file** — `.DS_Store` files, `__pycache__/` directories, `.pyc` bytecode, and generated output files were all committed to version control | 🔴 High |
-| 2 | **`__pycache__/` committed** — 12 compiled `.pyc` files tracked in git, including stale caches for deleted modules (`auth`, `dropdown`, `fibonacci`) | 🔴 High |
-| 3 | **Generated output files committed** — `processed-files/*.txt` are runtime artifacts and should never be in version control | 🟡 Medium |
-| 4 | **`.DS_Store` files committed** — 3 macOS system files tracked at multiple directory levels | 🟡 Medium |
-
-### ⚠️ Open — Recommended Future Fixes
-
-| # | Issue | Severity | Recommendation |
-|---|---|---|---|
-| 5 | **Hardcoded absolute file paths** in `conversion.py` (e.g. `/Users/kurtisng/Documents/dev/...`) — the app will crash on any other machine | 🔴 High | Use `os.path.join(os.path.dirname(__file__), '..', 'processed-files', ...)` or Flask's `app.root_path` |
-| 6 | **Path traversal vulnerability** in `download.py` — user-controlled `file` query param is passed directly to `send_file()` with zero validation | 🔴 High | Restrict downloads to the `processed-files/` directory; validate and sanitize the path |
-| 7 | **Secret key hardcoded** — `app.config['SECRET_KEY'] = 'bioinformatics'` in `__init__.py` | 🟡 Medium | Load from environment variable: `os.environ.get('SECRET_KEY')` |
-| 8 | **No `requirements.txt`** or `pyproject.toml` — dependency management is absent | 🟡 Medium | Add `requirements.txt` with `flask` pinned to a version |
-| 9 | **No input validation** — algorithm endpoints have no `try/except` blocks; malformed uploads will produce unhandled 500 errors | 🟡 Medium | Wrap request parsing in try/except and return user-friendly error messages |
-| 10 | **Duplicate `Algorithms/` folder** — the root `Algorithms/` directory is an exact copy of `Seer 1.91/Algorithms/` | 🟢 Low | Remove the duplicate |
-| 11 | **`import re` unused** in `algorithms.py` — imported at the top but never used | 🟢 Low | Remove the unused import |
-| 12 | **`button.py` + `views.py` serve the same route** (`/`) with the same template — redundant blueprint | 🟢 Low | Consolidate into a single home view |
-| 13 | **`print("XX\n")` in `conversion.py`** line 130 — should be `f.write("XX\n")` (prints to server console instead of file) | 🟡 Medium | Change `print` → `f.write` |
-
----
-
 ## 📄 Documentation
 
 - **[Project Report & References](https://drive.google.com/file/d/1vN7ej1nrN0YVqAd85SMpePdO8_ZXJkN7/view?usp=sharing)**
